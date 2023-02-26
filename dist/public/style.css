@@ -10,10 +10,11 @@
 
 #player {
     display: none;
-    gap: 1em;
+    gap: .3em .6em;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: .2em;
 }
 #player button { margin-right: .5em;  }
 @media (min-width: 1200px) {
@@ -21,6 +22,7 @@
         position: fixed;
         left: 0;
         top: 0;
+        margin-top: 0;
         padding: .5%;
         width: calc((100vw - 800px) / 2 - .5em);
         box-sizing: border-box;
