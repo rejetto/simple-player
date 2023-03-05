@@ -1,6 +1,6 @@
-HFS.onEvent('afterEntryName', ({ entry }) =>
+HFS.onEvent('afterEntryName', ({ entry }, { h }) =>
     /\.(mp3|wav|aac|ogg|flac)$/.test(entry.n) &&
-        `<button class='play-button' onclick='play("${entry.n}")' />`)
+        h('button',{ className: 'play-button', onClick: () => play(entry.n) }))
 
 function play(name = '') {
     const root = document.getElementById('player')
@@ -13,7 +13,7 @@ function play(name = '') {
 }
 
 HFS.onEvent('afterMenuBar', () => `
-    <div id='player'>
+    <div id='player' style='${HFS.plugins['simple-player'].position}: 0'>
         <audio controls></audio>
         <div>
             <button onclick="play()">✕</button>
