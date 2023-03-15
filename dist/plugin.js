@@ -1,4 +1,4 @@
-exports.version = 2
+exports.version = 2.1
 exports.description = "Simple audio player"
 exports.apiRequired = 6
 exports.repo = "rejetto/simple-player"
