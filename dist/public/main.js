@@ -1,6 +1,6 @@
-HFS.onEvent('afterEntryName', ({ entry }, { h }) =>
+HFS.onEvent('fileMenu', ({ entry }) =>
     /\.(mp3|wav|aac|ogg|flac)$/i.test(entry.n) &&
-        h('button',{ className: 'play-button', onClick: () => play(entry.n) }))
+        { label: "Play audio", icon: '🔈', onClick: () => play(entry.n) })
 
 function play(name = '') {
     const root = document.getElementById('player')

@@ -1,6 +1,6 @@
-exports.version = 2.1
+exports.version = 3
 exports.description = "Simple audio player"
-exports.apiRequired = 6
+exports.apiRequired = 7
 exports.repo = "rejetto/simple-player"
 exports.frontend_css = 'style.css'
 exports.frontend_js = 'main.js'
