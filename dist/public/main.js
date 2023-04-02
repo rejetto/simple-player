@@ -1,15 +1,18 @@
 HFS.onEvent('fileMenu', ({ entry }) =>
-    /\.(mp3|wav|aac|ogg|flac)$/i.test(entry.n) &&
-        { label: "Play audio", icon: '🔈', onClick: () => play(entry.n) })
+    /\.(mp3|wav|aac|ogg|flac)$/i.test(entry.uri) &&
+    { label: "Play audio", icon: '🔈', onClick: () => play(entry) })
 
-function play(name = '') {
+function play(entry) {
     const root = document.getElementById('player')
-    root.style.display = name ? 'flex' : ''
+    root.style.display = entry ? 'flex' : ''
     const audio = root.querySelector('audio')
-    audio.src = name
-    if (name) audio.play()
-    else audio.pause()
-    root.querySelector('#player-title').innerText = name
+    if (entry) {
+        audio.src = entry.uri
+        audio.play()
+    }
+    else
+        audio.pause()
+    root.querySelector('#player-title').innerText = entry.name
 }
 
 HFS.onEvent('afterMenuBar', () => `
