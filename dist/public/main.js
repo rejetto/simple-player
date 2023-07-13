@@ -1,9 +1,8 @@
-(() => { // this wrapper avoids name clashing of outer variables and functions
-    const config = HFS.getPluginConfig()
-    console.log({ config }, HFS.getPluginKey())
+{ // this wrapper avoids name clashing of outer variables and functions
+const config = HFS.getPluginConfig()
 
 HFS.onEvent('fileMenu', ({ entry }) =>
-    /\.(mp3|wav|aac|ogg|flac)$/i.test(entry.uri) &&
+    /mp3|wav|aac|ogg|flac/.test(entry.ext) &&
         { label: "Play audio", icon: '🔈', onClick: () => play(entry) })
 
 function play(entry) {
@@ -27,4 +26,4 @@ HFS.onEvent('afterMenuBar', () => `
     </div>
 `)
 
-})()
+}
